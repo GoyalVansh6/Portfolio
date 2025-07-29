@@ -150,7 +150,7 @@ function ParticleBackground() {
 }
 
 // API endpoint for contact form
-const CONTACT_API_ENDPOINT = "/api/contact";
+const CONTACT_API_ENDPOINT = "/api/Contact";
 
 export default function Contact() {
   // Always dark mode
