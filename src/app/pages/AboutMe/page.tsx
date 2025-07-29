@@ -2,7 +2,6 @@
 import React from "react";
 import { Montserrat, Roboto_Condensed } from 'next/font/google';
 
-// Font setup
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
@@ -17,16 +16,14 @@ const robotoCondensed = Roboto_Condensed({
 });
 
 export default function AboutMe() {
-  // Always dark theme, no toggle
   return (
     <main
       className={`min-h-screen flex flex-col justify-center items-center px-4 py-24 transition-colors duration-300 ${montserrat.className}`}
       style={{
         color: "#f3f3f3",
-        background: "transparent", // background handled elsewhere
+        background: "transparent",
       }}
     >
-      {/* About Section */}
       <section className="w-full max-w-3xl flex flex-col items-center">
         <span
           className={`text-xs mb-4 opacity-70 ${robotoCondensed.className} text-gray-300`}
@@ -41,7 +38,6 @@ export default function AboutMe() {
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="w-full max-w-5xl flex flex-wrap justify-center items-center gap-8 mt-16">
         <div className="flex flex-col items-center min-w-[120px]">
           <span className="text-2xl md:text-3xl font-extrabold text-blue-400">2+</span>

@@ -1,17 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-/**
- * POST /api/Contact
- * Handles contact form submissions and sends an email.
- * 
- * NOTE: If you are seeing net::ERR_CONNECTION_REFUSED, ensure:
- *   - Your Next.js server is running and listening on the correct port.
- *   - The API route is correctly named (case-sensitive: use /api/Contact if your file is Contact, or /api/contact if your file is contact).
- *   - You are sending requests to the correct URL (check for typos in /api/Contact vs /api/contact).
- *   - Your firewall or network is not blocking port 3000.
- */
-
 export async function POST(req: NextRequest) {
     // Only allow POST requests
     if (req.method && req.method !== "POST") {

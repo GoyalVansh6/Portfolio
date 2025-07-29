@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/navbar";
 
-// LiveTime component, hydration-safe
 function LiveTime() {
   const [time, setTime] = useState<string | null>(null);
 
@@ -21,7 +20,6 @@ function LiveTime() {
   return <span>India {time}</span>;
 }
 
-// Particle background effect
 function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -35,7 +33,6 @@ function ParticleBackground() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Particle definition
     const PARTICLE_COUNT = Math.floor((width * height) / 3500); // density
     const particles: {
       x: number;
@@ -66,7 +63,6 @@ function ParticleBackground() {
 
     function drawBackground() {
       if (!ctx) return;
-      // Fill with dark blue/gray
       ctx.fillStyle = "rgb(22,22,32)";
       ctx.fillRect(0, 0, width, height);
     }
@@ -91,7 +87,6 @@ function ParticleBackground() {
         p.x += p.vx;
         p.y += p.vy;
 
-        // Wrap around edges
         if (p.x < 0) p.x = width;
         if (p.x > width) p.x = 0;
         if (p.y < 0) p.y = height;
@@ -118,7 +113,6 @@ function ParticleBackground() {
         canvas.width = width;
         canvas.height = height;
       }
-      // Re-init particles for new size
       initParticles();
     }
     window.addEventListener("resize", handleResize);
@@ -141,7 +135,7 @@ function ParticleBackground() {
         height: "100vh",
         pointerEvents: "none",
         display: "block",
-        background: "rgb(22,22,32)", // fallback
+        background: "rgb(22,22,32)",
         transition: "background 0.3s",
       }}
       aria-hidden="true"
@@ -149,11 +143,9 @@ function ParticleBackground() {
   );
 }
 
-// API endpoint for contact form
 const CONTACT_API_ENDPOINT = "/api/Contact";
 
 export default function Contact() {
-  // Always dark mode
 
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -194,7 +186,6 @@ export default function Contact() {
     }
   };
 
-  // Use Consolas, fallback to monospace
   const fontFamily = `'Consolas', 'Liberation Mono', 'Menlo', 'Monaco', 'Courier New', monospace`;
 
   return (
@@ -205,8 +196,8 @@ export default function Contact() {
         className="min-h-screen flex flex-col justify-between transition-colors duration-300 bg-transparent"
         style={{
           fontFamily,
-          color: "#e5e7eb", // slate-200
-          background: "transparent", // background handled by ParticleBackground
+          color: "#e5e7eb",
+          background: "transparent",
         }}
       >
         <div className="flex-1 flex flex-col items-center justify-center pt-20 pb-8">
@@ -215,7 +206,7 @@ export default function Contact() {
               className="text-center text-2xl md:text-3xl font-extrabold tracking-wide mb-2"
               style={{
                 letterSpacing: "0.03em",
-                color: "#e5e7eb", // slate-200
+                color: "#e5e7eb",
                 fontFamily,
               }}
             >
@@ -224,7 +215,7 @@ export default function Contact() {
             <p
               className="text-center text-xs md:text-sm mb-8 opacity-80"
               style={{
-                color: "#94a3b8", // slate-400
+                color: "#94a3b8",
                 fontFamily,
               }}
             >
@@ -233,7 +224,7 @@ export default function Contact() {
                 href="mailto:goyalvansh9999@gmail.com"
                 className="underline underline-offset-2"
                 style={{
-                  color: "#60a5fa", // blue-400
+                  color: "#60a5fa",
                   fontFamily,
                 }}
               >

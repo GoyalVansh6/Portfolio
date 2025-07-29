@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useRef } from "react";
-import Navbar from "../../../components/navbar";
 
 import { Bebas_Neue } from "next/font/google";
 const bebasNeue = Bebas_Neue({
@@ -26,7 +25,7 @@ export default function TodoAppProject() {
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    const rotateX = (-y / (rect.height / 2)) * 12; // max 12deg
+    const rotateX = (-y / (rect.height / 2)) * 12;
     const rotateY = (x / (rect.width / 2)) * 12;
     el.style.transform = `perspective(900px) scale(1.04) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     el.style.boxShadow = "0 16px 48px 0 rgba(0,0,0,0.18), 0 2px 24px 0 rgba(0,120,255,0.10)";
@@ -57,7 +56,6 @@ export default function TodoAppProject() {
     >
       <main className="max-w-7xl mx-auto px-4 pt-28 pb-8">
         <div className="flex flex-col md:flex-row items-start" style={{ gap: 0 }}>
-          {/* Description section, more left-aligned and with extra right margin for gap */}
           <section
             className="md:pr-0"
             style={{

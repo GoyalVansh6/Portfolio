@@ -56,7 +56,6 @@ export default function InvoiceExchangeProject() {
     return () => {
       isMounted = false;
     };
-    // eslint-disable-next-line
   }, []);
 
   const currentAspect =
@@ -64,7 +63,6 @@ export default function InvoiceExchangeProject() {
       ? imageSizes[current].aspect
       : 16 / 9;
 
-  // LESSENED HEIGHT: changed from 600 to 380
   const carouselHeight = 380;
   const fitImageWidth = "100%";
   const fitImageHeight = carouselHeight;
