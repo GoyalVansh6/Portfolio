@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { Bebas_Neue } from "next/font/google";
+import Image from 'next/image';
+
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
   variable: "--font-bebas-neue",
@@ -58,14 +60,8 @@ export default function InvoiceExchangeProject() {
     };
   }, []);
 
-  const currentAspect =
-    imageSizes.length === images.length
-      ? imageSizes[current].aspect
-      : 16 / 9;
-
   const carouselHeight = 380;
   const fitImageWidth = "100%";
-  const fitImageHeight = carouselHeight;
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const el = imageRef.current;
@@ -95,6 +91,18 @@ export default function InvoiceExchangeProject() {
   function nextImage() {
     setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   }
+
+  // Helper to get width/height for current image, fallback to 1200x700 if not loaded yet
+  const getImageDimensions = () => {
+    if (imageSizes[current]) {
+      return {
+        width: imageSizes[current].width,
+        height: imageSizes[current].height,
+      };
+    }
+    // fallback default
+    return { width: 1200, height: 700 };
+  };
 
   return (
     <div
@@ -158,7 +166,7 @@ export default function InvoiceExchangeProject() {
                 onMouseLeave={handleMouseLeave}
                 aria-label="Stock & Invoice Management screenshot"
               >
-                <img
+                <Image
                   ref={imgTagRef}
                   src={images[current]}
                   alt={`Stock & Invoice Management screenshot ${current + 1}`}
@@ -175,6 +183,8 @@ export default function InvoiceExchangeProject() {
                   }}
                   loading="lazy"
                   draggable={false}
+                  width={getImageDimensions().width}
+                  height={getImageDimensions().height}
                 />
               </div>
               <button
@@ -271,6 +281,7 @@ export default function InvoiceExchangeProject() {
             <ul
               className="mt-6 text-base text-gray-600"
               style={{
+                fontFamily: bebasNeue.style.fontFamily,
                 lineHeight: 1.2,
                 fontSize: "1.08rem",
                 paddingLeft: "1.2em",

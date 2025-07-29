@@ -13,7 +13,6 @@ function easeInOutCubic(t: number) {
     : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
-// Make the scroll very slow by increasing the duration
 function scrollToHash(hash: string) {
   const target = document.querySelector(hash);
   if (!target) return;
@@ -23,7 +22,6 @@ function scrollToHash(hash: string) {
   const navHeight = 64;
   const targetY = rect.top + window.scrollY - navHeight;
 
-  // Set a much longer duration for a very slow scroll (e.g., 3000ms)
   const duration = 2500;
   let startTime: number | null = null;
 
@@ -45,7 +43,6 @@ function scrollToHash(hash: string) {
 }
 
 export default function Navbar() {
-  const dark = true;
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("#")) {
@@ -57,9 +54,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed w-full top-0 left-0 z-50 transition-colors duration-300 shadow-md backdrop-blur-md`}
+      className={`fixed w-full top-0 left-0 z-50 transition-colors duration-300 shadow-md backdrop-blur-md opacity-60`}
       style={{
-        background: "rgba(17, 24, 39, 0.65)", // dark: bg-gray-900/65
+        background: "rgba(17, 24, 39, 0.45)",
         WebkitBackdropFilter: "blur(12px)",
         backdropFilter: "blur(12px)",
       }}
@@ -83,7 +80,6 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-            {/* No dark mode toggle button */}
           </div>
         </div>
       </div>

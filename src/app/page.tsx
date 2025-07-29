@@ -10,13 +10,13 @@ export default function Home() {
       <Navbar />
       <main>
         <section id="about">
-          <AboutMe />
+            <AboutMe />
         </section>
         <section id="projects">
-          <Projects />
+            <Projects />
         </section>
         <section id="contact">
-          <Contact />
+            <Contact />
         </section>
       </main>
     </>

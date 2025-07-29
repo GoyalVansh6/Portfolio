@@ -2,6 +2,8 @@
 import React, { useState, useRef } from "react";
 
 import { Bebas_Neue } from "next/font/google";
+import Image from "next/image";
+
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
   variable: "--font-bebas-neue",
@@ -10,9 +12,24 @@ const bebasNeue = Bebas_Neue({
 });
 
 const images = [
-  "/todoapp/homepage.png",
-  "/todoapp/addTodo.png",
-  "/todoapp/editTodo.png",
+  {
+    src: "/todoapp/homepage.png",
+    width: 1600,
+    height: 900,
+    alt: "Todo app homepage screenshot",
+  },
+  {
+    src: "/todoapp/addTodo.png",
+    width: 1600,
+    height: 900,
+    alt: "Add todo screenshot",
+  },
+  {
+    src: "/todoapp/editTodo.png",
+    width: 1600,
+    height: 900,
+    alt: "Edit todo screenshot",
+  },
 ];
 
 export default function TodoAppProject() {
@@ -67,7 +84,7 @@ export default function TodoAppProject() {
               maxWidth: "320px",
               width: "100%",
               marginLeft: 0,
-              marginRight: "5rem", // create gap between description and 3d component
+              marginRight: "5rem",
             }}
           >
             <h1
@@ -97,7 +114,6 @@ export default function TodoAppProject() {
               Plan by hours, organize your full week, break down tasks into subtasks, and enjoy seamless drag-and-drop for effortless time management.
             </p>
           </section>
-          {/* Right: Image carousel (80% width on md+) */}
           <section
             className="flex flex-col items-center w-full md:w-auto"
             style={{
@@ -137,9 +153,11 @@ export default function TodoAppProject() {
                 onMouseLeave={handleMouseLeave}
                 aria-label="Todo app screenshot"
               >
-                <img
-                  src={images[current]}
-                  alt={`Todo app screenshot ${current + 1}`}
+                <Image
+                  src={images[current].src}
+                  alt={images[current].alt}
+                  width={images[current].width}
+                  height={images[current].height}
                   style={{
                     width: "100%",
                     height: "520px",
@@ -149,11 +167,13 @@ export default function TodoAppProject() {
                     borderRadius: "1.5rem",
                     pointerEvents: "none",
                   }}
-                  loading="lazy"
+                  {...(images[current].src === "/todoapp/homepage.png"
+                    ? { priority: true }
+                    : { loading: "lazy" })}
                   draggable={false}
+                  sizes="(max-width: 900px) 100vw, 900px"
                 />
               </div>
-              {/* Carousel controls */}
               <button
                 onClick={prevImage}
                 aria-label="Previous screenshot"
@@ -194,7 +214,6 @@ export default function TodoAppProject() {
               >
                 &#8594;
               </button>
-              {/* Image index indicator */}
               <div
                 className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-white/80 rounded-full px-3 py-1 text-base text-gray-700 shadow"
                 style={{

@@ -179,8 +179,8 @@ export default function Contact() {
 
       setSubmitted(true);
       setForm({ name: "", email: "", message: "" });
-    } catch (err: any) {
-      setError(err.message || "Failed to send message. Please try again.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send message. Please try again.");
     } finally {
       setSubmitting(false);
     }
@@ -345,7 +345,7 @@ export default function Contact() {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/in/vanshgoyal99/"
+                href="https://www.linkedin.com/in/vansh-goyal-9a9bb9291/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-400"
