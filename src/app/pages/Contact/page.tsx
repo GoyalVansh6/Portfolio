@@ -313,6 +313,7 @@ export default function Contact() {
           className="w-full text-xs sm:text-sm py-4 px-2 flex flex-col md:flex-row items-center justify-between border-t border-slate-700 text-slate-400 transition-colors duration-300 gap-2"
           style={{ fontFamily }}
         >
+          <div className="mb-2 md:mb-0 text-center w-full md:w-auto">&copy; 2024 Vansh.</div>
           <div className="flex-1 flex flex-col sm:flex-row items-center justify-center gap-2 w-full">
             <span>
               <a
