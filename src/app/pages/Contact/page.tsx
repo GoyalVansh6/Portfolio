@@ -146,7 +146,6 @@ function ParticleBackground() {
 const CONTACT_API_ENDPOINT = "/api/Contact";
 
 export default function Contact() {
-
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -200,10 +199,10 @@ export default function Contact() {
           background: "transparent",
         }}
       >
-        <div className="flex-1 flex flex-col items-center justify-center pt-20 pb-8">
-          <div className="w-full max-w-lg mx-auto">
+        <div className="flex-1 flex flex-col items-center justify-center pt-16 pb-8 sm:pt-20">
+          <div className="w-full max-w-[95vw] sm:max-w-lg mx-auto px-2 sm:px-0">
             <h1
-              className="text-center text-2xl md:text-3xl font-extrabold tracking-wide mb-2"
+              className="text-center text-xl sm:text-2xl md:text-3xl font-extrabold tracking-wide mb-2"
               style={{
                 letterSpacing: "0.03em",
                 color: "#e5e7eb",
@@ -213,7 +212,7 @@ export default function Contact() {
               LET&apos;S BUILD SOMETHING TOGETHER.
             </h1>
             <p
-              className="text-center text-xs md:text-sm mb-8 opacity-80"
+              className="text-center text-xs sm:text-sm mb-8 opacity-80"
               style={{
                 color: "#94a3b8",
                 fontFamily,
@@ -245,7 +244,7 @@ export default function Contact() {
                 value={form.name}
                 onChange={handleChange}
                 placeholder="Name"
-                className="w-full px-3 py-2 rounded border outline-none bg-transparent transition-colors duration-200 border-slate-600 text-slate-100 placeholder-slate-400 focus:border-blue-400"
+                className="w-full px-3 py-2 rounded border outline-none bg-transparent transition-colors duration-200 border-slate-600 text-slate-100 placeholder-slate-400 focus:border-blue-400 text-sm sm:text-base"
                 style={{ fontFamily }}
                 disabled={submitting || submitted}
               />
@@ -256,7 +255,7 @@ export default function Contact() {
                 value={form.email}
                 onChange={handleChange}
                 placeholder="Email"
-                className="w-full px-3 py-2 rounded border outline-none bg-transparent transition-colors duration-200 border-slate-600 text-slate-100 placeholder-slate-400 focus:border-blue-400"
+                className="w-full px-3 py-2 rounded border outline-none bg-transparent transition-colors duration-200 border-slate-600 text-slate-100 placeholder-slate-400 focus:border-blue-400 text-sm sm:text-base"
                 style={{ fontFamily }}
                 disabled={submitting || submitted}
               />
@@ -267,13 +266,13 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Message"
                 rows={4}
-                className="w-full px-3 py-2 rounded border outline-none bg-transparent transition-colors duration-200 resize-none border-slate-600 text-slate-100 placeholder-slate-400 focus:border-blue-400"
+                className="w-full px-3 py-2 rounded border outline-none bg-transparent transition-colors duration-200 resize-none border-slate-600 text-slate-100 placeholder-slate-400 focus:border-blue-400 text-sm sm:text-base"
                 style={{ fontFamily }}
                 disabled={submitting || submitted}
               />
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 font-semibold px-4 py-2 rounded transition-colors duration-200 mt-2 bg-blue-600 text-white hover:bg-blue-700"
+                className="w-full flex items-center justify-center gap-2 font-semibold px-4 py-2 rounded transition-colors duration-200 mt-2 bg-blue-600 text-white hover:bg-blue-700 text-sm sm:text-base"
                 disabled={submitting || submitted}
                 style={{ fontFamily, opacity: submitting ? 0.7 : 1, cursor: submitting ? "not-allowed" : undefined }}
               >
@@ -311,24 +310,23 @@ export default function Contact() {
           </div>
         </div>
         <footer
-          className="w-full text-xs py-4 px-2 flex flex-col md:flex-row items-center justify-between border-t border-slate-700 text-slate-400 transition-colors duration-300"
+          className="w-full text-xs sm:text-sm py-4 px-2 flex flex-col md:flex-row items-center justify-between border-t border-slate-700 text-slate-400 transition-colors duration-300 gap-2"
           style={{ fontFamily }}
         >
-          <div className="mb-2 md:mb-0">&copy; 2024 Vansh.</div>
-          <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-2">
+          <div className="flex-1 flex flex-col sm:flex-row items-center justify-center gap-2 w-full">
             <span>
               <a
                 href="mailto:goyalvansh9999@gmail.com"
-                className="hover:underline text-blue-400"
+                className="hover:underline text-blue-400 break-all"
                 style={{ fontFamily }}
               >
                 goyalvansh9999@gmail.com
               </a>
             </span>
-            <span className="hidden md:inline mx-2">|</span>
+            <span className="hidden sm:inline mx-2">|</span>
             <LiveTime />
-            <span className="hidden md:inline mx-2">|</span>
-            <span className="flex gap-2 items-center mt-1 md:mt-0">
+            <span className="hidden sm:inline mx-2">|</span>
+            <span className="flex gap-2 items-center mt-1 sm:mt-0">
               <a
                 href="https://github.com/goyalvansh6"
                 target="_blank"
